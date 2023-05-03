@@ -104,11 +104,6 @@ variable "storage_account_name" {
   type = string
 }
 
-variable "depends_on" {
-  type = any
-  default = null
-}
-
 # variable "redis_admin_password" {
 #   type = string
 # }
