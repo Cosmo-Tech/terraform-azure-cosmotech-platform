@@ -104,6 +104,11 @@ variable "storage_account_name" {
   type = string
 }
 
+variable "chart_package_version" {
+  type    = string
+  default = "2.4.0"
+}
+
 # variable "redis_admin_password" {
 #   type = string
 # }
