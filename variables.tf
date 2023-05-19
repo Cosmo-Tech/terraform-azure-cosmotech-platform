@@ -18,12 +18,22 @@ variable "subscription_id" {
 
 variable "client_id" {
   type        = string
-  description = "The client id"
+  description = "The client id of the app used to build this"
+}
+
+variable "platform_sp_client_id" {
+  type        = string
+  description = "The client_id of the platform's service principal"
 }
 
 variable "client_secret" {
   type        = string
   description = "The client secret"
+}
+
+variable "platform_sp_client_secret" {
+  type        = string
+  description = "The client_secret of the platform's service principal"
 }
 
 variable "location" {

@@ -96,8 +96,8 @@ module "create-cosmotech-api" {
   eventbus_uri          = var.eventbus_uri
   storage_account_key   = var.storage_account_key
   storage_account_name  = var.storage_account_name
-  client_id             = var.client_id
-  client_secret         = var.client_secret
+  client_id             = var.platform_sp_client_id
+  client_secret         = var.platform_sp_client_secret
   tenant_id             = var.tenant_id
   chart_package_version = var.chart_package_version
 
