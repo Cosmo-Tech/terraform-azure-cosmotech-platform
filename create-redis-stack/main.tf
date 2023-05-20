@@ -72,6 +72,7 @@ resource "helm_release" "cosmotechredis" {
 
   reuse_values = true
   wait         = true
+  timeout = 600
 
   values = [
     templatefile("${path.module}/values.yaml", local.values_redis)

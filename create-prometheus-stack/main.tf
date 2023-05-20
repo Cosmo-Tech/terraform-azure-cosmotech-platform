@@ -23,6 +23,7 @@ resource "helm_release" "prometheus-stack" {
   namespace  = var.monitoring_namespace
   create_namespace = false
 
+  timeout = 600
   reuse_values = true
 
   values = [
