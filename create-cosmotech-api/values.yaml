@@ -24,6 +24,7 @@ config:
           namespace: ${NAMESPACE}
           service-account-name: ${ARGO_SERVICE_ACCOUNT}
       azure:
+        appIdUri: ${APP_ID_URI}
         containerRegistries:
           solutions: ${ACR_LOGIN_SERVER}
         cosmos:

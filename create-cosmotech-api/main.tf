@@ -6,6 +6,7 @@ locals {
     "NAMESPACE"                     = var.namespace
     "REDIS_PORT"                    = var.redis_port
     "REDIS_PASSWORD"                = var.redis_admin_password
+    "APP_ID_URI"                    = "https://${var.api_dns_name}/platform"
     "ARGO_SERVICE_ACCOUNT"          = var.argo_service_account
     "ARGO_RELEASE_NAME"             = var.argo_release_name
     "COSMOTECH_API_INGRESS_ENABLED" = var.cosmotech_api_ingress_enabled
