@@ -13,7 +13,7 @@ variable "client_id" {
 variable "client_secret" {
   type = string
 }
-  
+
 variable "tenant_id" {
   type = string
 }
@@ -45,7 +45,7 @@ variable "acr_login_username" {
 variable "cosmos_key" {
   type = string
 }
-  
+
 variable "cosmos_uri" {
   type = string
 }
@@ -55,7 +55,7 @@ variable "adx_uri" {
 }
 
 variable "adx_ingestion_uri" {
-  type = string  
+  type = string
 }
 
 variable "eventbus_uri" {
@@ -71,7 +71,7 @@ variable "storage_account_name" {
 }
 
 variable "cosmotech_api_ingress_enabled" {
-  type = bool
+  type    = bool
   default = true
 }
 
@@ -101,7 +101,7 @@ variable "helm_release_name" {
 }
 
 variable "chart_package_version" {
-  type    = string
+  type = string
 }
 
 variable "argo_service_account" {

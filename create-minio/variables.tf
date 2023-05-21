@@ -25,7 +25,7 @@ variable "minio_release_name" {
 }
 
 variable "helm_chart" {
-  type = string
+  type    = string
   default = "minio"
 }
 
@@ -35,17 +35,17 @@ variable "minio_version" {
 }
 
 variable "argo_bucket_name" {
-  type = string
+  type    = string
   default = "argo-workflows"
 }
 
 variable "argo_minio_persistence_size" {
-  type = string
+  type    = string
   default = "16Gi"
 }
 
 variable "argo_minio_requests_memory" {
-  type = string
+  type    = string
   default = "2Gi"
 }
 

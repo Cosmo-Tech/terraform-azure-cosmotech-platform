@@ -25,7 +25,7 @@ resource "kubernetes_persistent_volume_v1" "redis-pv" {
   }
   spec {
     storage_class_name = ""
-    access_modes = ["ReadWriteOnce"]
+    access_modes       = ["ReadWriteOnce"]
     claim_ref {
       name      = var.redis_pvc_name
       namespace = var.namespace
@@ -53,7 +53,7 @@ resource "kubernetes_persistent_volume_claim_v1" "redis-pvc" {
   }
   spec {
     storage_class_name = ""
-    access_modes = ["ReadWriteOnce"]
+    access_modes       = ["ReadWriteOnce"]
     resources {
       requests = {
         storage = var.redis_pv_capacity
@@ -72,7 +72,7 @@ resource "helm_release" "cosmotechredis" {
 
   reuse_values = true
   wait         = true
-  timeout = 600
+  timeout      = 600
 
   values = [
     templatefile("${path.module}/values.yaml", local.values_redis)
@@ -84,9 +84,9 @@ resource "helm_release" "cosmotechredis" {
 }
 
 resource "helm_release" "redisinsight" {
-  name = var.helm_chart_name_insights
+  name      = var.helm_chart_name_insights
   namespace = var.namespace
-  chart = var.helm_chart_insights
+  chart     = var.helm_chart_insights
 
   values = [file("${path.module}/values-insight.yaml")]
 }

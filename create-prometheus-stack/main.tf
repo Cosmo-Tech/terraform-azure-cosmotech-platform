@@ -16,14 +16,14 @@ locals {
 }
 
 resource "helm_release" "prometheus-stack" {
-  name = var.helm_release_name
-  repository = var.helm_repo_url
-  chart = var.helm_chart
-  version = var.prometheus_stack_version
-  namespace  = var.monitoring_namespace
+  name             = var.helm_release_name
+  repository       = var.helm_repo_url
+  chart            = var.helm_chart
+  version          = var.prometheus_stack_version
+  namespace        = var.monitoring_namespace
   create_namespace = false
 
-  timeout = 600
+  timeout      = 600
   reuse_values = true
 
   values = [

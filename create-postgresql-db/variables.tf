@@ -11,17 +11,17 @@ variable "argo_postgresql_password" {
 }
 
 variable "argo_postgresql_user" {
-  type = string
+  type    = string
   default = "argo"
 }
 
 variable "argo_postgresql_secret_name" {
-  type = string
+  type    = string
   default = "argo-postgres-config"
 }
 
 variable "argo_database" {
-  type = string
+  type    = string
   default = "argo_workflows"
 }
 
@@ -41,6 +41,6 @@ variable "postgresql_version" {
 }
 
 variable "helm_release_name" {
-  type = string
+  type    = string
   default = "postgrescsmv2"
 }

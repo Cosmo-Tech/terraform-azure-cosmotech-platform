@@ -12,7 +12,7 @@ resource "helm_release" "postgresql" {
   repository = var.helm_repo_url
   chart      = var.helm_chart
   version    = var.postgresql_version
-  namespace = var.namespace
+  namespace  = var.namespace
 
   reuse_values = true
 
@@ -23,7 +23,7 @@ resource "helm_release" "postgresql" {
 
 resource "kubernetes_secret" "argo-postgres-config" {
   metadata {
-    name = var.argo_postgresql_secret_name
+    name      = var.argo_postgresql_secret_name
     namespace = var.namespace
     labels = {
       "app" = "postgres"

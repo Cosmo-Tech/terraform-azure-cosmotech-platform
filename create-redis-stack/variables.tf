@@ -11,7 +11,7 @@ variable "resource_group" {
 }
 
 variable "disk_name" {
-  type = string
+  type    = string
   default = "cosmotech-database-disk"
 }
 
@@ -31,12 +31,12 @@ variable "helm_chart_name" {
 }
 
 variable "helm_chart_name_insights" {
-  type = string
+  type    = string
   default = "redisinsight"
 }
 
 variable "helm_chart_insights" {
-  type = string
+  type    = string
   default = "https://docs.redis.com/latest/pkgs/redisinsight-chart-0.1.0.tgz"
 }
 
