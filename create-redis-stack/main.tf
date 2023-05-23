@@ -82,11 +82,3 @@ resource "helm_release" "cosmotechredis" {
     kubernetes_persistent_volume_v1.redis-pv, kubernetes_persistent_volume_claim_v1.redis-pvc
   ]
 }
-
-resource "helm_release" "redisinsight" {
-  name      = var.helm_chart_name_insights
-  namespace = var.namespace
-  chart     = var.helm_chart_insights
-
-  values = [file("${path.module}/values-insight.yaml")]
-}

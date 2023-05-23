@@ -30,16 +30,6 @@ variable "helm_chart_name" {
   default = "redis"
 }
 
-variable "helm_chart_name_insights" {
-  type    = string
-  default = "redisinsight"
-}
-
-variable "helm_chart_insights" {
-  type    = string
-  default = "https://docs.redis.com/latest/pkgs/redisinsight-chart-0.1.0.tgz"
-}
-
 variable "redis_version" {
   type    = string
   default = "17.8.0"
