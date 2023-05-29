@@ -10,11 +10,6 @@ argo:
     password: ${ACR_LOGIN_PASSWORD}
     registry: ${ACR_LOGIN_SERVER}
     username: ${ACR_LOGIN_USERNAME}
-  storage:
-    class:
-      parameters:
-        skuName: Standard_LRS
-        tags: ""
 config:
   api:
     serviceMonitor:
