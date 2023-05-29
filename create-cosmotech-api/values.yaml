@@ -10,6 +10,11 @@ argo:
     password: ${ACR_LOGIN_PASSWORD}
     registry: ${ACR_LOGIN_SERVER}
     username: ${ACR_LOGIN_USERNAME}
+  storage:
+    class:
+      parameters:
+        skuName: Standard_LRS
+        tags: ""
 config:
   api:
     serviceMonitor:
@@ -54,6 +59,7 @@ config:
 ingress:
   enabled: ${COSMOTECH_API_INGRESS_ENABLED}
   annotations:
+    cert-manager.io/cluster-issuer: ${TLS_SECRET_NAME}
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
     nginx.ingress.kubernetes.io/proxy-connect-timeout: "30"
