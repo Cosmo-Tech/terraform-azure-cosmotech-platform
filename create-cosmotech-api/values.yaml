@@ -23,6 +23,8 @@ config:
         workflows:
           namespace: ${NAMESPACE}
           service-account-name: ${ARGO_SERVICE_ACCOUNT}
+      authorization:
+        allowed-tenants: ${TENANT_ID}
       azure:
         appIdUri: ${APP_ID_URI}
         containerRegistries:
