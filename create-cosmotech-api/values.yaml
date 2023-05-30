@@ -35,6 +35,10 @@ config:
         credentials:
           clientId: ${CLIENT_ID}
           clientSecret: ${CLIENT_SECRET}
+          customer:
+            clientId: ${NETWORK_ADT_CLIENTID}
+            clientSecret: ${NETWORK_ADT_PASSWORD}
+            tenantId: ${TENANT_ID}
           tenantId: ${TENANT_ID}
         dataWarehouseCluster:
           baseUri: ${ADX_URI}

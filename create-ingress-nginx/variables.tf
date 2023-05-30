@@ -28,3 +28,7 @@ variable "loadbalancer_ip" {
 variable "tls_secret_name" {
   type = string
 }
+
+variable "resource_group" {
+  type = string
+}

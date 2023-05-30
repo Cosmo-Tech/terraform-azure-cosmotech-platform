@@ -6,6 +6,7 @@ module "create-ingress-nginx" {
   ingress_nginx_version = var.ingress_nginx_version
   loadbalancer_ip       = var.loadbalancer_ip
   tls_secret_name       = var.tls_secret_name
+  resource_group        = var.resource_group
 
   depends_on = [
     module.create-prometheus-stack
@@ -100,6 +101,8 @@ module "create-cosmotech-api" {
   client_secret         = var.platform_sp_client_secret
   tenant_id             = var.tenant_id
   chart_package_version = var.chart_package_version
+  network_adt_password  = var.network_adt_password
+  network_adt_clientid  = var.network_adt_clientid
 
   depends_on = [
     module.create-argo

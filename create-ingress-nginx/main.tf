@@ -5,6 +5,7 @@ locals {
     "NGINX_INGRESS_CONTROLLER_LOADBALANCER_IP" = var.loadbalancer_ip
     "NAMESPACE"                                = var.namespace
     "TLS_SECRET_NAME"                          = var.tls_secret_name
+    "PUBLIC_IP_RESOURCE_GROUP"                 = var.resource_group
   }
 }
 

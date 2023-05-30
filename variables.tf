@@ -114,6 +114,14 @@ variable "storage_account_name" {
   type = string
 }
 
+variable "network_adt_clientid" {
+  type = string
+}
+
+variable "network_adt_password" {
+  type = string
+}
+
 variable "chart_package_version" {
   type    = string
   default = "2.4.2-dev"

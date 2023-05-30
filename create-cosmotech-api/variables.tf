@@ -70,6 +70,14 @@ variable "storage_account_name" {
   type = string
 }
 
+variable "network_adt_clientid" {
+  type = string
+}
+
+variable "network_adt_password" {
+  type = string
+}
+
 variable "cosmotech_api_ingress_enabled" {
   type    = bool
   default = true

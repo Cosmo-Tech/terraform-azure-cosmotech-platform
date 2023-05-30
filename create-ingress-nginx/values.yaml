@@ -19,6 +19,7 @@ controller:
   service:
     annotations:
       service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path: "/healthz"
+      service.beta.kubernetes.io/azure-load-balancer-resource-group: ${PUBLIC_IP_RESOURCE_GROUP}
     labels:
       networking/traffic-allowed: "yes"
     loadBalancerIP: ${NGINX_INGRESS_CONTROLLER_LOADBALANCER_IP}

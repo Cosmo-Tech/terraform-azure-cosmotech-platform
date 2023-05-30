@@ -25,6 +25,8 @@ locals {
     "EVENTBUS_URI"                  = var.eventbus_uri
     "STORAGE_ACCOUNT_KEY"           = var.storage_account_key
     "STORAGE_ACCOUNT_NAME"          = var.storage_account_name
+    "NETWORK_ADT_PASSWORD"          = var.network_adt_password
+    "NETWORK_ADT_CLIENTID"          = var.network_adt_clientid
   }
 }
 
