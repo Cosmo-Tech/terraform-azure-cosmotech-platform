@@ -13,5 +13,5 @@ spec:
         domains:
           - ${COSMOTECH_API_DNS_NAME}
   issuerRef:
-    name: letsencrypt-${CERT_MANAGER_ACME}
+    name: ${CERT_MANAGER_ACME}
     kind: ClusterIssuer
