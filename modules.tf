@@ -27,6 +27,15 @@ module "create-prometheus-stack" {
   ]
 }
 
+locals {
+  values_config = <<EOT
+- key: "vendor"
+  operator: "Equal"
+  value: "cosmotech"
+  effect: "NoSchedule"
+EOT
+}
+
 module "cert-manager" {
   source  = "terraform-iaac/cert-manager/kubernetes"
   version = "2.5.0"
@@ -42,21 +51,9 @@ module "cert-manager" {
       value = "cosmotech.com/tier=services"
     },
     {
-      name  = "tolerations.keys"
-      value = "vendor"
-    },
-    {
-      name = "tolerations.operator"
-      value = "Equal"
-    },
-    {
-      name = "tolerations.value"
-      value = "cosmotech"
-    },
-    {
-      name = "tolerations.effect"
-      value = "NoSchedule"
-    }, 
+      name  = "tolerations"
+      value = local.values_config
+    }
   ]
 }
 
