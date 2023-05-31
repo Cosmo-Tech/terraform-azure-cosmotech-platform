@@ -30,10 +30,10 @@ module "create-prometheus-stack" {
 locals {
   tolerations = [
     {
-      "key" : "vendor",
-      "operator" : "Equal",
-      "value" : "cosmotech",
-      "effect" : "NoSchedule",
+      key      = "vendor"
+      operator = "Equal"
+      value    = "cosmotech"
+      effect   = "NoSchedule"
     }
   ]
 }
