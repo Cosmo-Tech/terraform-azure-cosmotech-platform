@@ -51,12 +51,8 @@ module "cert-manager" {
   additional_set = [
     {
       name  = "nodeSelector"
-      value = local.values_selector
+      value = "cosmotech.com/tier=services"
     },
-    {
-      name  = "tolerations"
-      value = local.values_config
-    }
   ]
 }
 
