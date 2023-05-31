@@ -50,7 +50,7 @@ module "cert-manager" {
   additional_set = [
     {
       name  = "tolerations"
-      value = local.tolerations
+      value = jsonencode(local.tolerations)
     },
   ]
 }
