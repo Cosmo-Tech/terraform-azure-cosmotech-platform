@@ -28,11 +28,14 @@ module "create-prometheus-stack" {
 }
 
 locals {
-  values_config = <<EOT
+  values_config   = <<EOT
 - key: "vendor"
   operator: "Equal"
   value: "cosmotech"
   effect: "NoSchedule"
+EOT
+  values_selector = <<EOT
+  "cosmotech.com/tier": "services"
 EOT
 }
 
@@ -48,7 +51,7 @@ module "cert-manager" {
   additional_set = [
     {
       name  = "nodeSelector"
-      value = "cosmotech.com/tier=services"
+      value = local.values_selector
     },
     {
       name  = "tolerations"
