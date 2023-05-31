@@ -49,8 +49,14 @@ module "cert-manager" {
 
   additional_set = [
     {
-      name  = "tolerations"
-      value = jsonencode(local.tolerations)
+      name = "deployments.cert-manager.io/cert-manager"
+      patch = jsonencode([
+        {
+          op    = "add"
+          path  = "/spec/template/spec/tolerations"
+          value = local.tolerations
+        },
+      ])
     },
   ]
 }
