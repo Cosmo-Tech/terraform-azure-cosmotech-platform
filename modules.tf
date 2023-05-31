@@ -42,14 +42,21 @@ module "cert-manager" {
       value = "cosmotech.com/tier=services"
     },
     {
-      name  = "tolerations"
-      value = <<EOT
-- key: "vendor"
-  operator: "Equal"
-  value: "cosmotech"
-  effect: "NoSchedule"
-EOT
-    }
+      name  = "tolerations.keys"
+      value = "vendor"
+    },
+    {
+      name = "tolerations.operator"
+      value = "Equal"
+    },
+    {
+      name = "tolerations.value"
+      value = "cosmotech"
+    },
+    {
+      name = "tolerations.effect"
+      value = "NoSchedule"
+    }, 
   ]
 }
 
