@@ -44,11 +44,11 @@ module "cert-manager" {
     {
       name  = "tolerations"
       value = <<EOT
-          - key: "vendor"
-            operator: "Equal"
-            value: "cosmotech"
-            effect: "NoSchedule"
-      EOT
+- key: "vendor"
+  operator: "Equal"
+  value: "cosmotech"
+  effect: "NoSchedule"
+EOT
     }
   ]
 }
