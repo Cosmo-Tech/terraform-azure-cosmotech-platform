@@ -5,7 +5,7 @@ variable "helm_repo_url" {
 
 variable "helm_release_name" {
   type    = string
-  default = "jetstack"
+  default = "cert-manager"
 }
 
 variable "cert_manager_version" {
