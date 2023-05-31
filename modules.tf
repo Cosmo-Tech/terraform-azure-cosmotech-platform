@@ -27,38 +27,26 @@ module "create-prometheus-stack" {
   ]
 }
 
-locals {
-  tolerations = [
-    {
-      key      = "vendor"
-      operator = "Equal"
-      value    = "cosmotech"
-      effect   = "NoSchedule"
-    }
-  ]
-}
+# module "cert-manager" {
+#   source  = "terraform-iaac/cert-manager/kubernetes"
+#   version = "2.5.0"
+
+#   namespace_name       = var.namespace
+#   create_namespace     = false
+#   cluster_issuer_email = var.cluster_issuer_email
+#   cluster_issuer_name  = var.cluster_issuer_name
+
+# }
 
 module "cert-manager" {
-  source  = "terraform-iaac/cert-manager/kubernetes"
-  version = "2.5.0"
+  source = "./create-cert-manager"
 
-  namespace_name       = var.namespace
-  create_namespace     = false
+  namespace            = var.namespace
+  monitoring_namespace = var.monitoring_namespace
   cluster_issuer_email = var.cluster_issuer_email
   cluster_issuer_name  = var.cluster_issuer_name
-
-  additional_set = [
-    {
-      name = "deployments.cert-manager.io/cert-manager"
-      patch = jsonencode([
-        {
-          op    = "add"
-          path  = "/spec/template/spec/tolerations"
-          value = local.tolerations
-        },
-      ])
-    },
-  ]
+  tls_secret_name      = var.tls_secret_name
+  api_dns_name         = var.api_dns_name
 }
 
 module "create-redis-stack" {
