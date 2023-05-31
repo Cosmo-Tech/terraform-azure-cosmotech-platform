@@ -3,7 +3,7 @@ prometheus:
   enabled: true
   servicemonitor:
     enabled: true
-    namespace: $MONITORING_NAMESPACE
+    namespace: ${MONITORING_NAMESPACE}
     interval: 300s
     scrapeTimeout: 30s
 tolerations:
