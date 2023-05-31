@@ -35,6 +35,22 @@ module "cert-manager" {
   create_namespace     = false
   cluster_issuer_email = var.cluster_issuer_email
   cluster_issuer_name  = var.cluster_issuer_name
+
+  additional_set = [
+    {
+      name  = "nodeSelector"
+      value = "cosmotech.com/tier=services"
+    },
+    {
+      name  = "tolerations"
+      value = <<EOT
+          - key: "vendor"
+            operator: "Equal"
+            value: "cosmotech"
+            effect: "NoSchedule"
+      EOT
+    }
+  ]
 }
 
 module "create-redis-stack" {
