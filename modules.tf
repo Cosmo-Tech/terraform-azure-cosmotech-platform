@@ -27,17 +27,6 @@ module "create-prometheus-stack" {
   ]
 }
 
-# module "cert-manager" {
-#   source  = "terraform-iaac/cert-manager/kubernetes"
-#   version = "2.5.0"
-
-#   namespace_name       = var.namespace
-#   create_namespace     = false
-#   cluster_issuer_email = var.cluster_issuer_email
-#   cluster_issuer_name  = var.cluster_issuer_name
-
-# }
-
 module "cert-manager" {
   source = "./create-cert-manager"
 

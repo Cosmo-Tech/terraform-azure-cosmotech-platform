@@ -31,6 +31,11 @@ resource "helm_release" "cert-manager" {
   values = [
     templatefile("${path.module}/values.yaml", local.values_cert_manager)
   ]
+
+  set {
+    name  = "installCRDs"
+    value = true
+  }
 }
 
 resource "time_sleep" "wait" {
