@@ -22,9 +22,9 @@ module "create-prometheus-stack" {
   redis_admin_password = random_password.redis_admin_password.result
   prom_admin_password  = random_password.prom_admin_password.result
 
-  depends_on = [
-    module.cert-manager
-  ]
+  # depends_on = [
+  #   module.cert-manager
+  # ]
 }
 
 module "cert-manager" {
