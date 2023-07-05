@@ -142,3 +142,6 @@ variable "argo_minio_requests_memory" {
   type    = string
   default = "2Gi"
 }
+
+variable "config_path" {
+}

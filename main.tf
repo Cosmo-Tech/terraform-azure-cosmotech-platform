@@ -10,26 +10,17 @@ locals {
   cluster_ca_certificate = base64decode(data.azurerm_kubernetes_cluster.aks-cluster.kube_config.0.cluster_ca_certificate)
 }
 provider "kubernetes" {
-  host                   = local.host
-  client_certificate     = local.client_certificate
-  client_key             = local.client_key
-  cluster_ca_certificate = local.cluster_ca_certificate
+  config_path = var.config_path
 }
 
 provider "helm" {
   kubernetes {
-    host                   = local.host
-    client_certificate     = local.client_certificate
-    client_key             = local.client_key
-    cluster_ca_certificate = local.cluster_ca_certificate
+    config_path = var.config_path
   }
 }
 
 provider "kubectl" {
-  host                   = local.host
-  client_certificate     = local.client_certificate
-  client_key             = local.client_key
-  cluster_ca_certificate = local.cluster_ca_certificate
+  config_path = var.config_path
 
   load_config_file = false
 }
