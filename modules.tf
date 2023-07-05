@@ -44,15 +44,18 @@ module "create-redis-stack" {
   redis_admin_password = random_password.redis_admin_password.result
   namespace            = var.namespace
   resource_group       = var.resource_group
+  managed_disk_id      = var.managed_disk_id
 }
 
 module "create-minio" {
   source = "./create-minio"
 
-  namespace             = var.namespace
-  monitoring_namespace  = var.monitoring_namespace
-  argo_minio_access_key = random_password.argo_minio_access_key.result
-  argo_minio_secret_key = random_password.argo_minio_secret_key.result
+  namespace                   = var.namespace
+  monitoring_namespace        = var.monitoring_namespace
+  argo_minio_access_key       = random_password.argo_minio_access_key.result
+  argo_minio_secret_key       = random_password.argo_minio_secret_key.result
+  argo_minio_persistence_size = var.argo_minio_persistence_size
+  argo_minio_requests_memory  = var.argo_minio_requests_memory
 
   depends_on = [module.create-prometheus-stack]
 }

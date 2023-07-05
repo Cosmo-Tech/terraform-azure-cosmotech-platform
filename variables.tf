@@ -18,7 +18,7 @@ variable "subscription_id" {
 
 variable "client_id" {
   type        = string
-  description = "The client id of the app used to build this"
+  description = "The client id of the app registration used to build this"
 }
 
 variable "platform_sp_client_id" {
@@ -28,7 +28,7 @@ variable "platform_sp_client_id" {
 
 variable "client_secret" {
   type        = string
-  description = "The client secret"
+  description = "The client secret of the app registration used to build this"
 }
 
 variable "platform_sp_client_secret" {
@@ -71,7 +71,7 @@ variable "cluster_issuer_name" {
 
 variable "ingress_nginx_version" {
   type    = string
-  default = "4.2.1"
+  default = "4.2.5"
 }
 
 variable "acr_login_password" {
@@ -87,11 +87,13 @@ variable "acr_login_username" {
 }
 
 variable "cosmos_key" {
-  type = string
+  type    = string
+  default = ""
 }
 
 variable "cosmos_uri" {
-  type = string
+  type    = string
+  default = ""
 }
 
 variable "adx_uri" {
@@ -103,6 +105,10 @@ variable "adx_ingestion_uri" {
 }
 
 variable "eventbus_uri" {
+  type = string
+}
+
+variable "managed_disk_id" {
   type = string
 }
 
@@ -127,22 +133,12 @@ variable "chart_package_version" {
   default = "2.4.2-dev"
 }
 
-# variable "redis_admin_password" {
-#   type = string
-# }
+variable "argo_minio_persistence_size" {
+  type    = string
+  default = "16Gi"
+}
 
-# variable "argo_postgresql_password" {
-#   type = string
-# }
-
-# variable "argo_minio_access_key" {
-#   type = string
-# }
-
-# variable "argo_minio_secret_key" {
-#   type = string
-# }
-
-# variable "prom_admin_password" {
-#   type = string
-# }
+variable "argo_minio_requests_memory" {
+  type    = string
+  default = "2Gi"
+}

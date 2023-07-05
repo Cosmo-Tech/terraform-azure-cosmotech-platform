@@ -15,6 +15,10 @@ variable "disk_name" {
   default = "cosmotech-database-disk"
 }
 
+variable "managed_disk_id" {
+  type = string
+}
+
 variable "helm_repo_url" {
   type    = string
   default = "https://charts.bitnami.com/bitnami"

@@ -7,15 +7,6 @@ locals {
   }
 }
 
-data "azurerm_managed_disk" "managed_disk" {
-  name                = var.disk_name
-  resource_group_name = var.resource_group
-}
-
-locals {
-  redis_disk_resource = data.azurerm_managed_disk.managed_disk.id
-}
-
 resource "kubernetes_persistent_volume_v1" "redis-pv" {
   metadata {
     name = var.redis_pv_name
@@ -37,7 +28,7 @@ resource "kubernetes_persistent_volume_v1" "redis-pv" {
 
       azure_disk {
         caching_mode  = "ReadWrite"
-        data_disk_uri = local.redis_disk_resource
+        data_disk_uri = var.managed_disk_id
         disk_name     = var.disk_name
         kind          = "Managed"
       }
