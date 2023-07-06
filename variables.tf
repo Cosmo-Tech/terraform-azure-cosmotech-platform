@@ -2,10 +2,6 @@ variable "resource_group" {
   type = string
 }
 
-variable "cluster_name" {
-  type = string
-}
-
 variable "tenant_id" {
   type        = string
   description = "The tenant id"
@@ -19,6 +15,7 @@ variable "subscription_id" {
 variable "client_id" {
   type        = string
   description = "The client id of the app registration used to build this"
+  default     = ""
 }
 
 variable "platform_sp_client_id" {
@@ -29,6 +26,7 @@ variable "platform_sp_client_id" {
 variable "client_secret" {
   type        = string
   description = "The client secret of the app registration used to build this"
+  default     = ""
 }
 
 variable "platform_sp_client_secret" {
