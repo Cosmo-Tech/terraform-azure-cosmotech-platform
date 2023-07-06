@@ -143,5 +143,5 @@ variable "argo_minio_requests_memory" {
   default = "2Gi"
 }
 
-variable "config_path" {
+variable "kube_config" {
 }

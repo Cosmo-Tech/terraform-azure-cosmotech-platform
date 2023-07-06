@@ -1,26 +1,39 @@
-data "azurerm_kubernetes_cluster" "aks-cluster" {
-  name                = var.cluster_name
-  resource_group_name = var.resource_group
-}
+
+# locals {
+#   host                   = data.azurerm_kubernetes_cluster.aks-cluster.kube_config.0.host
+#   client_certificate     = base64decode(data.azurerm_kubernetes_cluster.aks-cluster.kube_config.0.client_certificate)
+#   client_key             = base64decode(data.azurerm_kubernetes_cluster.aks-cluster.kube_config.0.client_key)
+#   cluster_ca_certificate = base64decode(data.azurerm_kubernetes_cluster.aks-cluster.kube_config.0.cluster_ca_certificate)
+# }
 
 locals {
-  host                   = data.azurerm_kubernetes_cluster.aks-cluster.kube_config.0.host
-  client_certificate     = base64decode(data.azurerm_kubernetes_cluster.aks-cluster.kube_config.0.client_certificate)
-  client_key             = base64decode(data.azurerm_kubernetes_cluster.aks-cluster.kube_config.0.client_key)
-  cluster_ca_certificate = base64decode(data.azurerm_kubernetes_cluster.aks-cluster.kube_config.0.cluster_ca_certificate)
+  host                   = var.kube_config.0.host
+  client_certificate     = base64decode(var.kube_config.0.client_certificate)
+  client_key             = base64decode(var.kube_config.0.client_key)
+  cluster_ca_certificate = base64decode(var.kube_config.0.cluster_ca_certificate)
 }
+
 provider "kubernetes" {
-  config_path = var.config_path
+  host                   = local.host
+  client_certificate     = local.client_certificate
+  client_key             = local.client_key
+  cluster_ca_certificate = local.cluster_ca_certificate
 }
 
 provider "helm" {
   kubernetes {
-    config_path = var.config_path
+    host                   = local.host
+    client_certificate     = local.client_certificate
+    client_key             = local.client_key
+    cluster_ca_certificate = local.cluster_ca_certificate
   }
 }
 
 provider "kubectl" {
-  config_path = var.config_path
+  host                   = local.host
+  client_certificate     = local.client_certificate
+  client_key             = local.client_key
+  cluster_ca_certificate = local.cluster_ca_certificate
 
   load_config_file = false
 }
