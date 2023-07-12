@@ -60,3 +60,8 @@ variable "requeue_time" {
   type    = string
   default = "1s"
 }
+
+variable "archive_ttl" {
+  type    = string
+  default = "3d"
+}

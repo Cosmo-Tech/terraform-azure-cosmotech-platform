@@ -38,6 +38,7 @@ resource "helm_release" "cosmotech-api" {
   namespace  = var.namespace
 
   reuse_values = true
+  timeout      = 600
 
   values = [
     templatefile("${path.module}/values.yaml", local.values_cosmotech_api)

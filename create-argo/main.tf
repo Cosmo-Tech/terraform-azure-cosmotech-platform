@@ -9,6 +9,7 @@ locals {
     "ARGO_DATABASE"               = var.argo_database
     "ARGO_POSTGRESQL_SECRET_NAME" = var.argo_postgresql_secret_name
     "REQUEUE_TIME"                = var.requeue_time
+    "ARCHIVE_TTL"                 = var.archive_ttl
   }
 }
 

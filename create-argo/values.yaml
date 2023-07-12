@@ -96,6 +96,7 @@ controller:
         strategy: OnWorkflowCompletion
   persistence:
     archive: true
+    archiveTTL: ${ARCHIVE_TTL}
     postgresql:
       host: "${POSTGRES_RELEASE_NAME}-postgresql"
       database: ${ARGO_DATABASE}
