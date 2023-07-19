@@ -112,3 +112,9 @@ module "create-cosmotech-api" {
     module.create-argo
   ]
 }
+
+module "create-keycloak" {
+  source = "./create-keycloak"
+
+  # Params
+}
