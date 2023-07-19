@@ -141,5 +141,10 @@ variable "argo_minio_requests_memory" {
   default = "2Gi"
 }
 
+variable "archive_ttl" {
+  type    = string
+  default = "3d"
+}
+
 variable "kube_config" {
 }
