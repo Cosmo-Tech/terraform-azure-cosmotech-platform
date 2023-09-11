@@ -52,7 +52,8 @@ variable "loadbalancer_ip" {
 }
 
 variable "tls_secret_name" {
-  type = string
+  type    = string
+  default = "letsencrypt-prod"
 }
 
 variable "api_dns_name" {
@@ -64,7 +65,8 @@ variable "cluster_issuer_email" {
 }
 
 variable "cluster_issuer_name" {
-  type = string
+  type    = string
+  default = "letsencrypt-prod"
 }
 
 variable "ingress_nginx_version" {
