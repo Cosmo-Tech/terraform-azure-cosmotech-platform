@@ -130,7 +130,7 @@ variable "network_adt_password" {
 
 variable "chart_package_version" {
   type    = string
-  default = "2.4.2-dev"
+  default = "2.4.7-public"
 }
 
 variable "argo_minio_persistence_size" {
